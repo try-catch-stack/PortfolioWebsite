@@ -2,3 +2,13 @@ input:checked ~ .dot {
     transform: translateX(-100%);
     background-color: #f9ed69;
 }
+
+.skills-icon {
+    font-size: 5rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .skills-icon {
+        font-size: 2.5rem;
+    }
+}

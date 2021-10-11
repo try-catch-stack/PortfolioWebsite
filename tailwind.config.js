@@ -10,6 +10,8 @@ module.exports = {
                 navTextDark: '#393E46',
                 primaryBg: '#364F6B',
                 navBg: '#393E46',
+                skillsBg: '#112D4E',
+                skillsBgLight: '#E3FDFD',
             },
         },
     },

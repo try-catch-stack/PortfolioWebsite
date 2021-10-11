@@ -17,7 +17,7 @@ const Banner = () => {
             <div className="pt-4">
                 <h2 className="flex justify-center text-4xl text-center">Hey, Welcome to my website!</h2>
                 <h4 className="flex justify-center text-2xl m-4 text-center">
-                    For me , {'<Code>'} is more than some bytes in a file.
+                    For me , {' <Code> '} is more than some bytes in a file.
                 </h4>
             </div>
         </div>
