@@ -22,11 +22,11 @@ export const Header = () => {
             elemetsToToggle.item(i).classList.toggle('hidden');
         }
         const banner = document.getElementsByClassName('body')[0];
-        banner.classList.toggle('blur');
+        setOpen(!isOpen);
     };
 
     return (
-        <div className="w-full flex bg-primary dark:bg-navBg">
+        <div className="w-full fixed flex bg-primary dark:bg-navBg">
             <div className="rounded-full m-4 mr-0">
                 <Image src="/Logo.png" height="50px" width="50px" />
             </div>
@@ -52,25 +52,37 @@ export const Header = () => {
                 </div>
                 <div className="pr-14 toggle hidden md:flex justify-between items-center mx-auto text-navTextDark dark:text-white">
                     <Link href="/">
-                        <a className="block md:inline-block mx-2 px-3 rounded md:rounded-lg md:hover:scale-105 hover:shadow-xl focus:outline focus:shadow-lg focus:bg-blue-200 border-b-2 border-gray-700 dark:border-gray-300 dark:focus:bg-blue-500 md:border-none py-2 mb-2 md:my-2">
+                        <a
+                            onClick={ToggleMenu}
+                            className="block md:inline-block mx-2 px-3 rounded md:rounded-lg md:hover:scale-105 hover:shadow-xl focus:outline focus:shadow-lg focus:bg-blue-200 border-b-2 border-gray-700 dark:border-gray-300 dark:focus:bg-blue-500 md:border-none py-2 mb-2 md:my-2"
+                        >
                             Home
                         </a>
                     </Link>
 
                     <Link href="/">
-                        <a className="block md:inline-block mx-2 px-3 rounded md:rounded-lg md:hover:scale-105 hover:shadow-xl focus:outline focus:shadow-lg focus:bg-blue-200 border-b-2 border-gray-700 dark:border-gray-300 dark:focus:bg-blue-500 md:border-none py-2 mb-2 md:my-2">
+                        <a
+                            onClick={ToggleMenu}
+                            className="block md:inline-block mx-2 px-3 rounded md:rounded-lg md:hover:scale-105 hover:shadow-xl focus:outline focus:shadow-lg focus:bg-blue-200 border-b-2 border-gray-700 dark:border-gray-300 dark:focus:bg-blue-500 md:border-none py-2 mb-2 md:my-2"
+                        >
                             About Me
                         </a>
                     </Link>
 
                     <Link href="/">
-                        <a className="block md:inline-block mx-2 px-3 rounded md:rounded-lg md:hover:scale-105 hover:shadow-xl focus:outline focus:shadow-lg focus:bg-blue-200 border-b-2 border-gray-700 dark:border-gray-300 dark:focus:bg-blue-500 md:border-none py-2 mb-2 md:my-2">
+                        <a
+                            onClick={ToggleMenu}
+                            className="block md:inline-block mx-2 px-3 rounded md:rounded-lg md:hover:scale-105 hover:shadow-xl focus:outline focus:shadow-lg focus:bg-blue-200 border-b-2 border-gray-700 dark:border-gray-300 dark:focus:bg-blue-500 md:border-none py-2 mb-2 md:my-2"
+                        >
                             Skills
                         </a>
                     </Link>
 
                     <Link href="/">
-                        <a className="block md:inline-block mx-2 px-3  rounded md:rounded-lg md:hover:scale-105 hover:shadow-xl focus:outline focus:shadow-lg focus:bg-blue-200 border-b-2 border-gray-700 dark:border-gray-300 dark:focus:bg-blue-500 md:border-none py-2 mb-2 md:my-2">
+                        <a
+                            onClick={ToggleMenu}
+                            className="block md:inline-block mx-2 px-3  rounded md:rounded-lg md:hover:scale-105 hover:shadow-xl focus:outline focus:shadow-lg focus:bg-blue-200 border-b-2 border-gray-700 dark:border-gray-300 dark:focus:bg-blue-500 md:border-none py-2 mb-2 md:my-2"
+                        >
                             Projects
                         </a>
                     </Link>
