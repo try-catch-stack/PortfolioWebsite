@@ -8,6 +8,8 @@ module.exports = {
                 primary: '#EEEEEE',
                 navText: '#E3FDFD',
                 navTextDark: '#393E46',
+                primaryBg: '#364F6B',
+                navBg: '#393E46',
             },
         },
     },
