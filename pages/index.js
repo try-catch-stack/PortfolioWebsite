@@ -4,6 +4,8 @@ import Footer from '../components/footer';
 import Banner from '../components/banner';
 import AboutMe from '../components/aboutMe';
 import Skills from '../components/skills';
+import Projects from '../components/projects';
+import ThreeDComponent from '../components/threeDComponent';
 
 export default function Home() {
     return (
@@ -19,9 +21,11 @@ export default function Home() {
             <div className="relative flex flex-col min-h-screen dark:bg-primaryBg dark:text-white">
                 <Header />
                 <div className="body">
+                    <ThreeDComponent />
                     <Banner />
                     <AboutMe />
                     <Skills />
+                    <Projects />
                 </div>
                 {/* <div className="flex-grow"></div> */}
                 <Footer />
