@@ -19,18 +19,19 @@ const Projects = () => {
             link: 'https://try-catch-stack.github.io/Tic-Tac-Toe/',
         },
         {
-            img: '/studentsAssemble.png',
-            description: 'Description.',
-            sourceCode: 'https://github.com/try-catch-stack/StudentsAssemble',
-            link: 'https://students-assemble.tech/',
+            img: '/portfolio.png',
+            description: 'Personal portfolio website made using Next.js on top of React.js ,Tailwind CSS and Three.js',
+            sourceCode: '',
+            link: '/',
         },
     ];
     return (
-        <div>
-            <div className="text-2xl font-bold lg:text-4xl flex justify-center mt-4 ">Projects</div>
+        <div className="bg-white dark:bg-primaryBg">
+            <div className="text-2xl font-bold lg:text-4xl flex justify-center p-4">Projects</div>
             <div className="grid px-16 py-8 lg:px-40 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {projects.map((project, i) => (
                     <ProjectCard
+                        key={i}
                         img={project.img}
                         sourceCode={project.sourceCode}
                         link={project.link}

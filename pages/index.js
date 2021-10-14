@@ -21,15 +21,17 @@ export default function Home() {
             </Head>
             <div className="relative flex flex-col min-h-screen dark:bg-primaryBg dark:text-white">
                 <Header dark={dark} setDark={setDark} />
-                <div className="body">
-                    <ThreeDComponent dark={dark} />
-                    <Banner />
-                    <AboutMe />
-                    <Skills />
-                    <Projects />
+
+                <ThreeDComponent dark={dark} />
+                <div className="relative">
+                    <div className="absolute top-0">
+                        <Banner />
+                        <AboutMe />
+                        <Skills />
+                        <Projects />
+                        <Footer />
+                    </div>
                 </div>
-                {/* <div className="flex-grow"></div> */}
-                <Footer />
             </div>
         </>
     );
