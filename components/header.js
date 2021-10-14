@@ -27,7 +27,11 @@ export const Header = ({ dark, setDark }) => {
     return (
         <div className="z-50 w-full fixed flex bg-primary dark:bg-navBg">
             <div className="rounded-full m-4 mr-0">
-                <Image src="/Logo.png" height="50px" width="50px" />
+                <Link href="/">
+                    <a>
+                        <Image src="/Logo.png" height="50px" width="50px" />
+                    </a>
+                </Link>
             </div>
 
             <div className=" md:flex justify-end pl-0 p-4 w-full h-full ">
