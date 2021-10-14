@@ -1,8 +1,7 @@
 import * as THREE from 'three';
 import React, { Suspense, useEffect, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Reflector, Text, useTexture, useGLTF } from '@react-three/drei';
-import Overlay from './overlay';
+import { Reflector, Stars, Text, useTexture, useGLTF } from '@react-three/drei';
 
 function VideoText({ clicked, ...props }) {
     const [video] = useState(() =>
@@ -16,7 +15,7 @@ function VideoText({ clicked, ...props }) {
     useEffect(() => void (clicked && video.play()), [video, clicked]);
     return (
         <>
-            <Text font="/Inter-Bold.woff" fontSize={1} letterSpacing={-0.06} {...props}>
+            <Text font="/Inter-Bold.woff" fontSize={1} letterSpacing={-0.01} {...props}>
                 I'm Danish
                 <meshBasicMaterial toneMapped={false}>
                     <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
@@ -87,14 +86,21 @@ function Intro({ start, set }) {
     });
 }
 
-export default function ThreeDComponent() {
+export default function ThreeDComponent({ dark }) {
     const [clicked, setClicked] = useState(false);
     const [ready, setReady] = useState(false);
     const store = { clicked, setClicked, ready, setReady };
 
+    const [backgroundColor, setBackgroundColor] = useState('#384259');
+
     useEffect(() => {
         setClicked(true);
-    });
+        const texture = new THREE.TextureLoader().load('/space.jpg');
+    }, []);
+
+    useEffect(() => {
+        dark ? setBackgroundColor('#384259') : setBackgroundColor('#ffffff');
+    }, [dark]);
 
     return (
         <>
@@ -105,8 +111,7 @@ export default function ThreeDComponent() {
                     pixelRatio={[1, 1.5]}
                     camera={{ position: [0, 0, 0], fov: 35 }}
                 >
-                    <color attach="background" args={['#384259']} />
-                    {/* <fog attach="fog" args={['black', 15, 20]} /> */}
+                    <color attach="background" args={[backgroundColor]} />
                     <Suspense fallback={null}>
                         <group position={[0, -2, 0]}>
                             <VideoText {...store} position={[0, 3, -2]} />
@@ -119,6 +124,7 @@ export default function ThreeDComponent() {
                         <directionalLight position={[-20, 0, -10]} intensity={0.7} />
                         <Intro start={true} set={setReady} />
                     </Suspense>
+                    <Stars radius={50} depth={50} count={5000} factor={4} saturation={1} fade />
                 </Canvas>
             </div>
         </>

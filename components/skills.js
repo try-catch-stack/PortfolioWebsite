@@ -3,8 +3,8 @@ import React from 'react';
 const Skills = () => {
     return (
         <div className="grid grid-rows-2 w-full pb-12  grid-flow-col lg:gap-4 bg-skillsBgLight dark:bg-skillsBg">
-            <div className="place-self-center lg:p-4 lg:hidden text-2xl lg:text-4xl mt-4">Skill set</div>
-            <div className="place-self-center p-4 hidden lg:block text-4xl mt-8">
+            <div className="place-self-center lg:p-4 font-bold lg:hidden text-2xl lg:text-4xl mt-4">Skill set</div>
+            <div className="place-self-center p-4 hidden  font-bold lg:block text-4xl mt-8">
                 Languages and Technologies I have used
             </div>
             <div className="flex flex-wrap w-full justify-center skills-section">

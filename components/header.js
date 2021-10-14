@@ -4,8 +4,7 @@ import Link from 'next/link';
 import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs';
 import { Sling as Hamburger } from 'hamburger-react';
 
-export const Header = () => {
-    const [dark, setDark] = useState(true);
+export const Header = ({ dark, setDark }) => {
     const [isOpen, setOpen] = useState(false);
     const toggleTheme = (e) => {
         dark ? document.documentElement.classList.remove('dark') : document.documentElement.classList.add('dark');
@@ -26,7 +25,7 @@ export const Header = () => {
     };
 
     return (
-        <div className="w-full fixed flex bg-primary dark:bg-navBg">
+        <div className="z-50 w-full fixed flex bg-primary dark:bg-navBg">
             <div className="rounded-full m-4 mr-0">
                 <Image src="/Logo.png" height="50px" width="50px" />
             </div>
