@@ -7,7 +7,7 @@ import AboutMe from '../components/aboutMe';
 import Skills from '../components/skills';
 import Projects from '../components/projects';
 import ThreeDComponent from '../components/threeDComponent';
-import BackgroundSpace from '../components/backgroundSpace';
+// import BackgroundSpace from '../components/backgroundSpace';
 
 export default function Home() {
     const [dark, setDark] = useState(true);
@@ -25,7 +25,7 @@ export default function Home() {
                 <ThreeDComponent dark={dark} />
 
                 <div className="relative">
-                    <BackgroundSpace />
+                    {/* <BackgroundSpace /> */}
                     <div className="absolute top-0 z-20">
                         <Banner />
                         <AboutMe />

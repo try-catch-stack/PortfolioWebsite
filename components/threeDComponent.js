@@ -36,7 +36,7 @@ function VideoText({ clicked, ...props }) {
             </group>
             <group position={[0, -2, 0]}>
                 <Text
-                    font="/Inter-Bold.woff"
+                    font="/BungeeInline-Regular.ttf"
                     fontSize={1}
                     letterSpacing={-0.06}
                     textAlign="center"
