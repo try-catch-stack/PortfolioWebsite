@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 input:checked ~ .dot {
     transform: translateX(-100%);
     background-color: #f9ed69;
@@ -11,6 +13,10 @@ input:checked ~ .dot {
     .skills-icon {
         font-size: 2.5rem;
     }
+}
+
+.quote {
+    font-family: 'Press Start 2P', cursive;
 }
 
 .bg {

@@ -1,8 +1,8 @@
 import * as THREE from 'three';
 import React, { Suspense, useEffect, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import { Reflector, Stars, Text, useTexture, useAspect } from '@react-three/drei';
-import { Flex, Box, useReflow } from '@react-three/flex';
+import { Stars, Text, useAspect } from '@react-three/drei';
+import { Box } from '@react-three/flex';
 
 function VideoText({ clicked, ...props }) {
     const { size } = useThree();
@@ -60,7 +60,7 @@ function Intro({ start, set }) {
     useEffect(() => setTimeout(() => set(true), 500), []);
     return useFrame((state) => {
         if (start) {
-            state.camera.position.lerp(vec.set(state.mouse.x * 5, 3 + state.mouse.y * 2, 14), 0.02);
+            state.camera.position.lerp(vec.set(state.mouse.x * 5, 3 + state.mouse.y * 5, 14), 0.02);
             state.camera.lookAt(0, 0, 0);
         }
     });
@@ -75,7 +75,6 @@ export default function ThreeDComponent({ dark }) {
 
     useEffect(() => {
         setClicked(true);
-        const texture = new THREE.TextureLoader().load('/space.jpg');
     }, []);
 
     useEffect(() => {
