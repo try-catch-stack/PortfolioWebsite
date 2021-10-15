@@ -2,7 +2,7 @@ import React from 'react';
 
 const Skills = () => {
     return (
-        <div className="grid w-full pb-12 lg:gap-4 bg-skillsBgLight dark:bg-skillsBg">
+        <div id="skills" className="grid w-full pb-12 lg:gap-4 bg-skillsBgLight dark:bg-skillsBg">
             <div className="place-self-center p-2  font-bold  text-2xl lg:text-4xl mt-4 text-headingTextDark dark:text-headingText">
                 Skill set
             </div>
@@ -21,7 +21,7 @@ const Skills = () => {
                 <i className="hover:shadow-xl dark:hover:shadow-2xl rounded-lg devicon-django-line-wordmark skills-icon p-4" />
                 <i className="hover:shadow-xl dark:hover:shadow-2xl rounded-lg devicon-mongodb-plain-wordmark colored skills-icon p-4" />
                 <i className="hover:shadow-xl dark:hover:shadow-2xl rounded-lg devicon-jupyter-plain-wordmark colored skills-icon p-4" />
-                <i class="hover:shadow-xl dark:hover:shadow-2xl rounded-lg devicon-threejs-original-wordmark  skills-icon p-4 " />
+                <i className="hover:shadow-xl dark:hover:shadow-2xl rounded-lg devicon-threejs-original-wordmark  skills-icon p-4 " />
             </div>
         </div>
     );

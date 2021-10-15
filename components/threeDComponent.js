@@ -40,7 +40,7 @@ function VideoText({ clicked, ...props }) {
                     fontSize={1}
                     letterSpacing={-0.06}
                     textAlign="center"
-                    maxWidth={vpWidth}
+                    maxWidth={4}
                     {...props}
                 >
                     Welcome to my website!

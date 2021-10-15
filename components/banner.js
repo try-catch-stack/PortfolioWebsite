@@ -1,9 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const Banner = () => {
+    const variants = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1 },
+    };
     return (
-        <div className="grid flex-grow content-center bg-white border-0 dark:bg-primaryBg h-full pt-16">
+        <div id="banner" className="grid flex-grow content-center bg-white border-0 dark:bg-primaryBg h-full pt-16">
             <div className="flex justify-center ">
                 {/* <Image className="bg-gray-600 rounded-full" src="/DM.png" width="200%" height="200%" /> */}
                 <img

@@ -26,7 +26,7 @@ const Projects = () => {
         },
     ];
     return (
-        <div className="bg-white dark:bg-primaryBg md:py-16">
+        <div id="projects" className="bg-white dark:bg-primaryBg md:py-16">
             <div className="text-2xl font-bold lg:text-4xl flex justify-center p-4 text-headingTextDark dark:text-headingText">
                 Projects
             </div>
