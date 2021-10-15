@@ -55,7 +55,7 @@ export const Header = ({ dark, setDark }) => {
                 <div className="pr-14 toggle hidden md:flex justify-between items-center mx-auto text-navTextDark dark:text-white">
                     <a
                         onClick={() => {
-                            ToggleMenu;
+                            ToggleMenu();
                             animateScroll.scrollToTop();
                         }}
                         className="block cursor-pointer md:inline-block mx-2 px-3 rounded md:rounded-lg md:hover:scale-105 hover:shadow-xl focus:outline focus:shadow-lg focus:bg-blue-200 border-b-2 border-gray-700 dark:border-gray-300 dark:focus:bg-blue-500 md:border-none py-2 mb-2 md:my-2"
@@ -65,7 +65,7 @@ export const Header = ({ dark, setDark }) => {
 
                     <a
                         onClick={() => {
-                            ToggleMenu;
+                            ToggleMenu();
                             scroller.scrollTo('banner', {
                                 duration: 800,
                                 delay: 0,
@@ -80,7 +80,7 @@ export const Header = ({ dark, setDark }) => {
 
                     <a
                         onClick={() => {
-                            ToggleMenu;
+                            ToggleMenu();
                             scroller.scrollTo('skills', {
                                 duration: 800,
                                 delay: 0,
@@ -95,7 +95,7 @@ export const Header = ({ dark, setDark }) => {
 
                     <a
                         onClick={() => {
-                            ToggleMenu;
+                            ToggleMenu();
                             scroller.scrollTo('projects', {
                                 duration: 800,
                                 delay: 0,
