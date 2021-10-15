@@ -1,9 +1,13 @@
 import * as THREE from 'three';
 import React, { Suspense, useEffect, useState } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Reflector, Stars, Text, useTexture, useGLTF } from '@react-three/drei';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { Reflector, Stars, Text, useTexture, useAspect } from '@react-three/drei';
+import { Flex, Box, useReflow } from '@react-three/flex';
 
 function VideoText({ clicked, ...props }) {
+    const { size } = useThree();
+    const [vpWidth, vpHeight] = useAspect(size.width, size.height);
+
     const [video] = useState(() =>
         Object.assign(document.createElement('video'), {
             src: '/drei.mp4',
@@ -15,33 +19,36 @@ function VideoText({ clicked, ...props }) {
     useEffect(() => void (clicked && video.play()), [video, clicked]);
     return (
         <>
-            <Text font="/Inter-Bold.woff" fontSize={1} letterSpacing={-0.01} {...props}>
-                I'm Danish
-                <meshBasicMaterial toneMapped={false}>
-                    <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
-                </meshBasicMaterial>
-            </Text>
-        </>
-    );
-}
-function VideoText2({ clicked, ...props }) {
-    const [video] = useState(() =>
-        Object.assign(document.createElement('video'), {
-            src: '/drei.mp4',
-            crossOrigin: 'Anonymous',
-            loop: true,
-            muted: 'muted',
-        }),
-    );
-    useEffect(() => void (clicked && video.play()), [video, clicked]);
-    return (
-        <>
-            <Text font="/Inter-Bold.woff" fontSize={1} letterSpacing={-0.06} maxWidth={4} anchorX={'center'} {...props}>
-                Welcome to my website!
-                <meshBasicMaterial toneMapped={false}>
-                    <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
-                </meshBasicMaterial>
-            </Text>
+            <group position={[0, 1.5, 0]}>
+                <Text
+                    font="/BungeeInline-Regular.ttf"
+                    fontSize={1}
+                    maxWidth={vpWidth}
+                    letterSpacing={-0.01}
+                    textAlign="center"
+                    {...props}
+                >
+                    I'm Danish
+                    <meshBasicMaterial toneMapped={false}>
+                        <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
+                    </meshBasicMaterial>
+                </Text>
+            </group>
+            <group position={[0, -2, 0]}>
+                <Text
+                    font="/Inter-Bold.woff"
+                    fontSize={1}
+                    letterSpacing={-0.06}
+                    textAlign="center"
+                    maxWidth={vpWidth}
+                    {...props}
+                >
+                    Welcome to my website!
+                    <meshBasicMaterial toneMapped={false}>
+                        <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
+                    </meshBasicMaterial>
+                </Text>
+            </group>
         </>
     );
 }
@@ -104,7 +111,7 @@ export default function ThreeDComponent({ dark }) {
 
     return (
         <>
-            <div className="h-screen">
+            <div className="h-screen z-20">
                 <Canvas
                     concurrent
                     gl={{ alpha: false }}
@@ -113,13 +120,7 @@ export default function ThreeDComponent({ dark }) {
                 >
                     <color attach="background" args={[backgroundColor]} />
                     <Suspense fallback={null}>
-                        <group position={[0, -2, 0]}>
-                            <VideoText {...store} position={[0, 3, -2]} />
-                        </group>
-                        <group position={[0, -2, 0]}>
-                            <VideoText2 {...store} position={[0, 0, -2]} />
-                        </group>
-
+                        <VideoText {...store} />
                         <ambientLight intensity={1} />
                         <directionalLight position={[-20, 0, -10]} intensity={0.7} />
                         <Intro start={true} set={setReady} />

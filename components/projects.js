@@ -26,8 +26,10 @@ const Projects = () => {
         },
     ];
     return (
-        <div className="bg-white dark:bg-primaryBg">
-            <div className="text-2xl font-bold lg:text-4xl flex justify-center p-4">Projects</div>
+        <div className="bg-white dark:bg-primaryBg md:py-16">
+            <div className="text-2xl font-bold lg:text-4xl flex justify-center p-4 text-headingTextDark dark:text-headingText">
+                Projects
+            </div>
             <div className="grid px-16 py-8 lg:px-40 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {projects.map((project, i) => (
                     <ProjectCard

@@ -23,6 +23,8 @@ module.exports = {
                 navBg: '#222831',
                 skillsBg: '#112D4E',
                 skillsBgLight: '#E3FDFD',
+                headingText: '#3FC1C9',
+                headingTextDark: '#364F6B',
             },
         },
     },
