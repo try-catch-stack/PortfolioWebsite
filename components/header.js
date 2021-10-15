@@ -3,9 +3,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs';
 import { Sling as Hamburger } from 'hamburger-react';
+import { scroller, animateScroll } from 'react-scroll';
 
-export const Header = () => {
-    const [dark, setDark] = useState(true);
+export const Header = ({ dark, setDark }) => {
     const [isOpen, setOpen] = useState(false);
     const toggleTheme = (e) => {
         dark ? document.documentElement.classList.remove('dark') : document.documentElement.classList.add('dark');
@@ -26,9 +26,11 @@ export const Header = () => {
     };
 
     return (
-        <div className="w-full fixed flex bg-primary dark:bg-navBg">
+        <div className="z-50 w-full fixed flex bg-primary dark:bg-navBg">
             <div className="rounded-full m-4 mr-0">
-                <Image src="/Logo.png" height="50px" width="50px" />
+                <a className="cursor-pointer " onClick={animateScroll.scrollToTop}>
+                    <Image src="/Logo.png" height="50px" width="50px" />
+                </a>
             </div>
 
             <div className=" md:flex justify-end pl-0 p-4 w-full h-full ">
@@ -51,41 +53,60 @@ export const Header = () => {
                     </button>
                 </div>
                 <div className="pr-14 toggle hidden md:flex justify-between items-center mx-auto text-navTextDark dark:text-white">
-                    <Link href="/">
-                        <a
-                            onClick={ToggleMenu}
-                            className="block md:inline-block mx-2 px-3 rounded md:rounded-lg md:hover:scale-105 hover:shadow-xl focus:outline focus:shadow-lg focus:bg-blue-200 border-b-2 border-gray-700 dark:border-gray-300 dark:focus:bg-blue-500 md:border-none py-2 mb-2 md:my-2"
-                        >
-                            Home
-                        </a>
-                    </Link>
+                    <a
+                        onClick={() => {
+                            ToggleMenu();
+                            animateScroll.scrollToTop();
+                        }}
+                        className="block cursor-pointer md:inline-block mx-2 px-3 rounded md:rounded-lg md:hover:scale-105 hover:shadow-xl focus:outline focus:shadow-lg focus:bg-blue-200 border-b-2 border-gray-700 dark:border-gray-300 dark:focus:bg-blue-500 md:border-none py-2 mb-2 md:my-2"
+                    >
+                        Home
+                    </a>
 
-                    <Link href="/">
-                        <a
-                            onClick={ToggleMenu}
-                            className="block md:inline-block mx-2 px-3 rounded md:rounded-lg md:hover:scale-105 hover:shadow-xl focus:outline focus:shadow-lg focus:bg-blue-200 border-b-2 border-gray-700 dark:border-gray-300 dark:focus:bg-blue-500 md:border-none py-2 mb-2 md:my-2"
-                        >
-                            About Me
-                        </a>
-                    </Link>
+                    <a
+                        onClick={() => {
+                            ToggleMenu();
+                            scroller.scrollTo('aboutMe', {
+                                duration: 800,
+                                delay: 0,
+                                smooth: 'easeInOutQuart',
+                                offset: -50,
+                            });
+                        }}
+                        className="block cursor-pointer md:inline-block mx-2 px-3 rounded md:rounded-lg md:hover:scale-105 hover:shadow-xl focus:outline focus:shadow-lg focus:bg-blue-200 border-b-2 border-gray-700 dark:border-gray-300 dark:focus:bg-blue-500 md:border-none py-2 mb-2 md:my-2"
+                    >
+                        About Me
+                    </a>
 
-                    <Link href="/">
-                        <a
-                            onClick={ToggleMenu}
-                            className="block md:inline-block mx-2 px-3 rounded md:rounded-lg md:hover:scale-105 hover:shadow-xl focus:outline focus:shadow-lg focus:bg-blue-200 border-b-2 border-gray-700 dark:border-gray-300 dark:focus:bg-blue-500 md:border-none py-2 mb-2 md:my-2"
-                        >
-                            Skills
-                        </a>
-                    </Link>
+                    <a
+                        onClick={() => {
+                            ToggleMenu();
+                            scroller.scrollTo('skills', {
+                                duration: 800,
+                                delay: 0,
+                                smooth: 'easeInOutQuart',
+                                offset: -80,
+                            });
+                        }}
+                        className="block cursor-pointer md:inline-block mx-2 px-3 rounded md:rounded-lg md:hover:scale-105 hover:shadow-xl focus:outline focus:shadow-lg focus:bg-blue-200 border-b-2 border-gray-700 dark:border-gray-300 dark:focus:bg-blue-500 md:border-none py-2 mb-2 md:my-2"
+                    >
+                        Skills
+                    </a>
 
-                    <Link href="/">
-                        <a
-                            onClick={ToggleMenu}
-                            className="block md:inline-block mx-2 px-3  rounded md:rounded-lg md:hover:scale-105 hover:shadow-xl focus:outline focus:shadow-lg focus:bg-blue-200 border-b-2 border-gray-700 dark:border-gray-300 dark:focus:bg-blue-500 md:border-none py-2 mb-2 md:my-2"
-                        >
-                            Projects
-                        </a>
-                    </Link>
+                    <a
+                        onClick={() => {
+                            ToggleMenu();
+                            scroller.scrollTo('projects', {
+                                duration: 800,
+                                delay: 0,
+                                smooth: 'easeInOutQuart',
+                                offset: -70,
+                            });
+                        }}
+                        className="block cursor-pointer md:inline-block mx-2 px-3  rounded md:rounded-lg md:hover:scale-105 hover:shadow-xl focus:outline focus:shadow-lg focus:bg-blue-200 border-b-2 border-gray-700 dark:border-gray-300 dark:focus:bg-blue-500 md:border-none py-2 mb-2 md:my-2"
+                    >
+                        Projects
+                    </a>
                 </div>
             </div>
         </div>
