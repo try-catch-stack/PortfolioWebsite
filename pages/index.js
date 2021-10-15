@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import Header from '../components/header';
 import Footer from '../components/footer';
-import Banner from '../components/banner';
 import AboutMe from '../components/aboutMe';
 import Skills from '../components/skills';
 import Projects from '../components/projects';
@@ -27,7 +26,6 @@ export default function Home() {
                 <div className="relative">
                     {/* <BackgroundSpace /> */}
                     <div className="absolute top-0 z-20">
-                        <Banner />
                         <AboutMe />
                         <Skills />
                         <Projects />

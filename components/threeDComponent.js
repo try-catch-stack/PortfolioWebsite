@@ -10,7 +10,7 @@ function VideoText({ clicked, ...props }) {
 
     const [video] = useState(() =>
         Object.assign(document.createElement('video'), {
-            src: '/drei.mp4',
+            src: '/backgroundVideo.mp4',
             crossOrigin: 'Anonymous',
             loop: true,
             muted: 'muted',
@@ -35,50 +35,23 @@ function VideoText({ clicked, ...props }) {
                 </Text>
             </group>
             <group position={[0, -2, 0]}>
-                <Text
-                    font="/BungeeInline-Regular.ttf"
-                    fontSize={1}
-                    letterSpacing={-0.06}
-                    textAlign="center"
-                    maxWidth={4}
-                    {...props}
-                >
-                    Welcome to my website!
-                    <meshBasicMaterial toneMapped={false}>
-                        <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
-                    </meshBasicMaterial>
-                </Text>
+                <Box>
+                    <Text
+                        font="/BungeeInline-Regular.ttf"
+                        fontSize={0.9}
+                        letterSpacing={-0.07}
+                        textAlign="center"
+                        maxWidth={4}
+                        {...props}
+                    >
+                        Welcome to my website!
+                        <meshBasicMaterial toneMapped={false}>
+                            <videoTexture attach="map" args={[video]} encoding={THREE.sRGBEncoding} />
+                        </meshBasicMaterial>
+                    </Text>
+                </Box>
             </group>
         </>
-    );
-}
-
-function Ground() {
-    const [floor, normal] = useTexture([
-        '/SurfaceImperfections003_1K_var1.jpg',
-        '/SurfaceImperfections003_1K_Normal.jpg',
-    ]);
-    return (
-        <Reflector
-            resolution={512}
-            args={[10, 10]}
-            mirror={0.4}
-            mixBlur={8}
-            mixStrength={1}
-            rotation={[-Math.PI / 2, 0, Math.PI / 2]}
-            blur={[400, 100]}
-        >
-            {(Material, props) => (
-                <Material
-                    color="#a0a0a0"
-                    metalness={0.4}
-                    roughnessMap={floor}
-                    normalMap={normal}
-                    normalScale={[1, 1]}
-                    {...props}
-                />
-            )}
-        </Reflector>
     );
 }
 

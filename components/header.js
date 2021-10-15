@@ -66,7 +66,7 @@ export const Header = ({ dark, setDark }) => {
                     <a
                         onClick={() => {
                             ToggleMenu();
-                            scroller.scrollTo('banner', {
+                            scroller.scrollTo('aboutMe', {
                                 duration: 800,
                                 delay: 0,
                                 smooth: 'easeInOutQuart',
